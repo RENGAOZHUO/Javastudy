@@ -19,7 +19,7 @@ public class Main{
         double average=(jascore+mathscore+englishscore)/3;
        System.out.println("平均分"+average);
        if(average>=90){
-           System.out.println("优秀");
+           System.out.println("成绩优秀");
        }else if(average>=80){
            System.out.println("良好");
        }else if(average>=60){
