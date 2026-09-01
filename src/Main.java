@@ -2,31 +2,49 @@
 // 点击装订区域中的 <icon src="AllIcons.Actions.Execute"/> 图标。
 import java.util.Scanner;
 public class Main{
-    public static void main(String[] args){
-       Scanner scanner = new Scanner(System.in);
-       System.out.println("请输入姓名：");
-       String name =scanner.nextLine();
-       System.out.println("Java成绩：");
-       double jascore = scanner.nextDouble();
-       System.out.println("数学成绩：");
-       double mathscore = scanner.nextDouble();
-       System.out.println("英语成绩成绩：");
-       double englishscore = scanner.nextDouble();
-       System.out.println("name:"+name);
-       System.out.println("Java:"+ jascore);
-       System.out.println("math:"+mathscore);
-       System.out.println("englsih:"+englishscore);
-        double average=(jascore+mathscore+englishscore)/3;
-       System.out.println("平均分"+average);
-       if(average>=90){
-           System.out.println("成绩优秀");
-       }else if(average>=80){
-           System.out.println("良好");
-       }else if(average>=60){
-           System.out.println("及格");
-       }else{
-           System.out.println("不合格");
-       }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int get = 0;
+        int noget = 0;
+        double average = 0;
+        double total = 0;
+        double maxx ;
+        double min;
+        System.out.println("Please enter student number:");
+        int num = scanner.nextInt();
+        double[] arr = new double[num];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = scanner.nextDouble();
+        }
+        maxx = arr[0];
+        min = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            // 求最大值
+            if (arr[i] > maxx) {
+                maxx = arr[i];
+            }
+            // 求最小值
+            if (arr[i] < min) {
+                min = arr[i];
+            }}
+            // 累加总分
+            for (int i = 0; i < arr.length; i++) {
+                total += arr[i];
+            }
+            average = total / num;
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] > 70) {
+                    get++;
+                } else {
+                    noget++;
+                }
+            }
+            System.out.println("===== 成绩统计 ======");
+            System.out.println("最高分" + maxx);
+            System.out.println("最低分" + min);
+            System.out.println("平均分" + average);
+            System.out.println("及格人数" + get);
+            System.out.println("不及格人数" + noget);
 
+        }
     }
-}
