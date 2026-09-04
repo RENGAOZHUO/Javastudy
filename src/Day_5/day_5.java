@@ -45,7 +45,7 @@ class Teacher extends Person{
 public class day_5 {
     public static void main(String[] args){
        Person person1 = new Person();
-       Person person2 = new Student();
+       Student person2 = new Student();
        Person person3 = new Teacher();
        person1.introduce();;
        person2.introduce();;
