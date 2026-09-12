@@ -1,5 +1,9 @@
 package Day_16and17;
-
+//字节流：
+//byte[] buffer = new byte[1024];
+//int len = fis.read(buffer);
+//String text =
+//        new String(buffer, 0, len);
 //缓冲流 BufferedInputStream / BufferedOutputStream
 //BufferedInputStream bis = new BufferedInputStream(fis);
 //BufferedInputStream 本身并不直接负责找到文件。
