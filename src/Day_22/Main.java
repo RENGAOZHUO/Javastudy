@@ -1,5 +1,5 @@
 package Day_22;
-//Thread.currentThread().getName().Thread.currentThread()表示：当前正在执行这段代码的线程。.getName()：获取线程名称。
+//Thread.currentThread().getName() Thread.currentThread()表示：当前正在执行这段代码的线程。.getName()：获取线程名称。
 //怎么创建自己的线程？1.继承 Thread，2.实现 Runnable
 //一个很重要的方法：run()可以简单理解成：这个线程启动之后要执行什么任务。
 //线程不是“同时执行”这么简单
@@ -28,7 +28,7 @@ package Day_22;
 //
 public class Main {
     public static void main(String[] args){
-        /*MyThread t = new MyThread();//第一种方法：Thread
+        MyThread t = new MyThread();//第一种方法：Thread
 
         t.start();//这里最重要：为什么是 start()，不是 run()？
         //如果·t.run();本质上只是：main 线程像调用普通方法一样调用 run()。并没有真正创建新的执行线程。
@@ -39,13 +39,13 @@ public class Main {
                     "main线程：" + i
             );}//为什么输出是main线程以及子线程？以及为什么每次执行先后顺序都不一样？
         //因为：main线程+MyThread线程，都在运行。到底谁先执行一小段，不能简单认为永远固定。*/
-        /*MyTask task = new MyTask();
+        MyTask task = new MyTask();
 
         Thread f = new Thread(task,"线程名");
         Thread u = new Thread(task,"未定义姓名");
 
         f.start();
-        u.start();*/
+        u.start();
         Thread downloadThread = new Thread(new DownloadTask(),"下载线程");
         downloadThread.start();
         for (int i = 1; i <= 5; i++) {
