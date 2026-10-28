@@ -14,7 +14,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
 
-public class Main {
+public class
+Main {
     public static void main(){
         /*File file=new File("test.txt");
         try{file.createNewFile();

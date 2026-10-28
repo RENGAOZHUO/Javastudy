@@ -145,3 +145,81 @@ public class Main {
         }
     }
 }
+//多个变量录入到的解决办法
+//方法一：每个字段分别输入（最适合目前的你）
+//让用户分别输入姓名、年龄和成绩：
+//请输入学生姓名：Alice Andan 请输入年龄：20 请输入成绩：95.5
+//对应代码：
+//case "3": {
+//    System.out.print("请输入学生姓名：");
+//    String name = sc.nextLine();
+//
+//    System.out.print("请输入年龄：");
+//    int age = Integer.parseInt(sc.nextLine());
+//
+//    System.out.print("请输入成绩：");
+//    double score = Double.parseDouble(sc.nextLine());
+//
+//    if (name.isBlank() || age <= 0
+//            || !Double.isFinite(score)
+//            || score < 0 || score > 100) {
+//        System.out.println("姓名、年龄或成绩不合法！");
+//        break;
+//    }
+//
+//    int row = dao.addStudent(name, age, score);
+//
+//    if (row > 0) {
+//        System.out.println("添加学生成功！");
+//    } else {
+//        System.out.println("添加学生失败！");
+//    }
+//
+//    break;
+//}
+//这里的关键是：String name = sc.nextLine();nextLine() 会读取整行，因此 Alice Andan 中间的空格不会造成问题。
+//这也是控制台交互程序中很常见的做法：每个字段单独提示、单独读取。
+//--------------------------------------------
+//方法二：一行输入多个字段，使用固定分隔符
+//如果你想保留原来的“一次输入三个数据”的形式，可以选择一个不太容易出现在姓名中的符号，例如英文逗号。
+//请输入姓名、年龄、成绩，用英文逗号分隔：Alice Andan,20,95.5
+//然后：
+//String input = sc.nextLine();
+//
+//String[] parts = input.split(",", -1);
+//
+//if (parts.length != 3) {
+//    System.out.println("输入格式错误！");
+//    break;
+//}
+//
+//String name = parts[0].trim();
+//int age = Integer.parseInt(parts[1].trim());
+//double score = Double.parseDouble(parts[2].trim());
+//它会把输入拆分成：
+//下标                                   内容
+//parts[0]                            "Alice Andan"
+//parts[1]                             "20"
+//parts[2]                             "95.5"
+//这样姓名中的空格就被完整保留下来了。
+//不过，这种简单写法仍有局限：如果某个字段本身包含逗号，就需要进一步处理，例如使用标准 CSV 解析规则。
+//------------------------------------------------
+//方法三：从末尾提取年龄和成绩（拓展思路）
+//还有一种方法：仍然允许用户用空格分隔，但规定最后两个数据一定是年龄和成绩。
+//例如：Alice Andan 20 95.5
+//程序可以从右向左理解：
+//最后一个数据 95.5 是成绩。
+//倒数第二个数据 20 是年龄。
+//前面的 Alice Andan 全部属于姓名。
+//不过，这需要额外处理字符串下标、截取以及格式校验。对于目前的学习阶段，没有必要为了保留一行输入而增加这么多复杂度。
+//你现在应该选择哪一种？
+//我的建议是：Day 35 使用方法一，分别读取姓名、年龄和成绩。
+//它不但容易理解，还方便你后面实现输入校验。例如年龄输入错误时，可以直接提示用户重新输入年龄，而不用重新填写姓名和成绩。
+//以后进入 Spring Boot 项目开发时，你会接触到另一种方式：前端提交一个包含多个字段的 JSON 对象，例如：
+//{
+//  "name": "Alice Andan",
+//  "age": 20,
+//  "score": 95.5
+//}
+//届时，Spring Boot 可以将这些数据绑定到 Java 对象中，而不需要你使用 Scanner 一个一个读取。
+//因此，你今天学习的重点不是掌握所有字符串拆分技巧，而是理解：输入有一定的格式约定，程序需要按照约定解析数据，并在使用数据前检查其合法性。

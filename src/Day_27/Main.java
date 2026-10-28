@@ -9,7 +9,7 @@ package Day_27;
 //}}
 //这个叫：匿名内部类。
 //意思就是：我不专门创建一个 MyTask 类了，直接在这里临时创建一个实现 Runnable 的对象。
-//Lambda 就是在继续简化它，上面的零食声明，可以简化为：
+//Lambda 就是在继续简化它，上面的临时声明，可以简化为：
 //Runnable task = () -> {
 //    System.out.println("任务执行");
 //}；

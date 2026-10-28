@@ -1,7 +1,7 @@
 package Day_11;
-//throw:发现某个情况不否和要求，希望主动热那个程序产生异常即throw是主动抛出一个异常；
+//throw:发现某个情况不符合要求，希望主动让那个程序产生异常即throw是主动抛出一个异常；
 //throws：告诉调用的人，这个方法可能产生某种异常；
-//e.getMessage()返回类似hrow new RuntimeException("年龄不能是负数！");括号里的内容
+//e.getMessage()返回类似throw new RuntimeException("年龄不能是负数！");括号里的内容
 //新认识异常：IllegalArgumentException:参数不合法、NullPointerException.
 public class Main {
     public static void main(String[] args){
