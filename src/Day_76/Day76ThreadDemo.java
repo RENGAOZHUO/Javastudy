@@ -1,3 +1,5 @@
+package Day_76;
+
 public class Day76ThreadDemo {
     public static void main(String[] args)
             throws InterruptedException {

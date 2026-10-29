@@ -1,10 +1,12 @@
+package Day_76;
+
 import java.util.concurrent.CountDownLatch;
 
 public class Day76RaceDemo {
 
     static class RequestCounter {
 
-        private int unsafeCount = 0;
+        private volatile int unsafeCount = 0;
 
         private int safeCount = 0;
 
@@ -57,7 +59,6 @@ public class Day76RaceDemo {
                 for (int j = 0; j < loopCount; j++) {
                     counter.recordRequest();
                 }
-1
             }, "worker-" + i);
 
             threads[i].start();
